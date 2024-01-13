@@ -27,7 +27,7 @@ public class EventHandlerClient {
   static IIngameOverlay ingameOverlay = EventHandlerClient::onRenderArmorToughnessEvent;
 
   public static void onRenderArmorToughnessEvent(ForgeIngameGui gui, PoseStack matrices, float partialTick, int width, int height) {
-    if (mc.getCameraEntity() instanceof LivingEntity viewEntity) {
+    if (mc.getCameraEntity() instanceof LivingEntity viewEntity && !mc.player.isCreative() && !mc.player.isSpectator()) {
       int armorToughness = Mth.floor(viewEntity.getAttribute(Attributes.ARMOR_TOUGHNESS).getValue());
       if (armorToughness < 1) {
         return;
