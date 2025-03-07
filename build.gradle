@@ -1,10 +1,11 @@
 buildscript {
     repositories {
+        mavenCentral()
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://maven.parchmentmc.org' }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.+', changing: true
         classpath 'org.parchmentmc:librarian:1.+'
     }
 }
@@ -17,7 +18,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 //apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
 
-version = "${mc_version}-8"
+version = "${mc_version}-${mod_version}"
 group = 'com.tfar.toughnessbar' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'toughnessbar'
 
@@ -69,7 +70,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:${mc_version}-44.0.36"
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
